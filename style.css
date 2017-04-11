@@ -1,34 +1,103 @@
 body{
-  background-color:#e8e8e8;
-  color:#3d3d3d;
+  background-color: #e8e8e8;
+  color: #3d3d3d;
   font-family: "proxima-nova", sans-serif;
-  font-weight:300;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.header,
+.president-name{
+  padding-left:60px;
+  padding-bottom:15px;
+}
+
+h1{
+  padding-bottom:15px;
+}
+
+.total{
+  font-weight: 600;
+}
+
+.btn-primary {
+  border-color: #bc4af9 !important;
+  background: none !important;
+  color: #bc4af9 !important;
+  border-radius: 20px !important;
+}
+
+.btn-primary:hover {
+  border-color: #bc4af9 !important;
+  background-color: #cccccc !important;
+  color: #bc4af9 !important;
+}
+
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.btn-primary:visited {
+  border-color: #bc4af9 !important;
+  background-color: #bc4af9 !important;
+  color: #e8e8e8 !important;
+}
+
+.container-fluid{
+	padding-top:30px;
+}
+
+.canvas-links{
+  position:absolute;
+}
+
+/*.canvas-links-div{
+  position:absolute;
+}*/
+
+.axis .tick line{
+    stroke: #3d3d3d;
 }
 
 .axis .tick line{
-    stroke:#3d3d3d;
-}
-
-.axis .tick line{
-    stroke-width:.5px;
+    stroke-width: .5px;
 }
 
 .sidebar{
-  right:0;
-  top:0;
-  bottom:0;
+  right: 0;
+  top: 30px;
+  bottom: 0;
   overflow-y:scroll;
 }
 
 .order{
-  fill:#3d3d3d;
+  stroke: #3d3d3d;
 }
 
 .order.active{
-  fill:#4ac3e8;
+  stroke: #bc4af9;
+}
+
+.order-circle{
+  background-color: #bc4af9;
+  visibility: hidden;
 }
 
 .background{
-  padding-top:20px;
-  padding-bottom:20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.order:hover{
+  stroke: #bc4af9
+}
+
+.title,
+.president,
+.content,
+.references,
+.subject{
+  margin-right: 50px;
 }
