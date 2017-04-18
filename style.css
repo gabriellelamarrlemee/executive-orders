@@ -12,41 +12,54 @@ body{
   padding-bottom:15px;
 }
 
+.header{
+  position:fixed;
+  height:180px;
+  background-color: #e8e8e8;
+  z-index:1;
+  padding-top:30px;
+}
+
+#canvas-n{
+  padding-top:180px;
+}
+
 h1{
   padding-bottom:15px;
 }
 
 .total{
   font-weight: 600;
+  font-size: 12px;
 }
 
-.btn-primary {
-  border-color: #bc4af9 !important;
+.btn-primary,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:visited {
+  border-color: #a9b35a !important;
   background: none !important;
-  color: #bc4af9 !important;
+  color: #a9b35a !important;
   border-radius: 20px !important;
 }
 
 .btn-primary:hover {
-  border-color: #bc4af9 !important;
+  border-color: #a9b35a !important;
   background-color: #cccccc !important;
-  color: #bc4af9 !important;
+  color: #a9b35a !important;
 }
 
-.btn-primary:focus,
-.btn-primary.focus,
 .btn-primary:active,
 .btn-primary.active,
 .btn-primary:active:hover,
-.btn-primary.active:hover,
-.btn-primary:visited {
-  border-color: #bc4af9 !important;
-  background-color: #bc4af9 !important;
+.btn-primary.active:hover {
+  border-color: #a9b35a !important;
+  background-color: #a9b35a !important;
   color: #e8e8e8 !important;
 }
 
 .container-fluid{
-	padding-top:30px;
+	padding-top:0px;
 }
 
 .canvas-links{
@@ -67,7 +80,7 @@ h1{
 
 .sidebar{
   right: 0;
-  top: 30px;
+  top: 180px;
   bottom: 0;
   overflow-y:scroll;
 }
@@ -81,7 +94,6 @@ h1{
 }
 
 .order-circle{
-  background-color: #bc4af9;
   visibility: hidden;
 }
 

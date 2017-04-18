@@ -13,21 +13,36 @@ function dataloaded(err, orders){
   var plot = d3.select('.canvas-n');
   var linkPlot = d3.select('.canvas-links-div');
 
-  // console.log(orders);
-  // console.log(orderData);
-
   var orderlines = OrderLines();
   plot.datum(orderData).call(orderlines);
 
   //Make the buttons update data
-  // var buttons = d3.selectAll('.btn');
-  // buttons.select('.labor-btn').on('click',function(){
+  var buttons = d3.selectAll('.btn');
+
+  // d3.select('.labor-btn').on('click',function(){
+  //   console.log(this.id);
+  //   if(!d3.select(this).classed('active')){
+  //     console.log('checked');ordersBySubject.filter(this.id);} else{
+  //       console.log('not checked'); ordersBySubject.filter(null);};
+  //   dispatcher.call('update');
+  //   });
+
   //   ordersBySubject.filter(null);
   //   ordersBySubject.filter(this.id);
   //   console.log(this.id);
   //   dispatcher.call('update');
   //   });
   //
+  // buttons.selectAll('.school-type-btn').on('click',function(){
+  //   console.log(this);
+  //   var type = d3.select(this).select('div')._groups[0];
+  //   console.log(type[0].id);
+  //   if(!d3.select(this).classed('active')){
+  //     console.log('checked'); schoolsByType.filter(type[0].id);} else{
+  //       console.log('not checked'); schoolsByType.filter(null);};
+  //   dispatcher.call('update');
+  // });
+
   // buttons.select('.immigration-btn').on('click',function(){
   //   ordersBySubject.filter(null);
   //   ordersBySubject.filter(this.id);
@@ -77,10 +92,10 @@ function dataloaded(err, orders){
   //   dispatcher.call('update');
   //   });
   //
-  // //Listen to global dispatcher events
+  //Listen to global dispatcher events
   // dispatcher.on('update',update);
   // function update(){
-  //   plot.datum(ordersBySubject.top(Infinity)).call(orderlines);
+  //   plot.datum(ordersBySubject.top(Infinity)).call(foregroundlines);
   // };
 
 };
