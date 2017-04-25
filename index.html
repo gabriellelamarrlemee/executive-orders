@@ -9,47 +9,66 @@
     <link href="./style.css" rel="stylesheet"/>
 </head>
 <body>
+<div class="intro-page">
+  <div class="col-sm-3 col-md-3 col-lg-3"></div>
+  <div class="col-sm-6 col-md-6 col-lg-6">
+    <h1>U.S. Presidents and their Executive Orders</h1>
+    <p>There have been 5804 recorded orders since 1826. Click the button below to explore each president's executive orders and see how order topics have changed over time. Hovering and clicking on an order will allow you to view relationships and order details.</p>
+    <p>Source: <a href="http://www.presidency.ucsb.edu/executive_orders.php">The American Presidency Project</a></p>
+    <div data-toggle="buttons">
+      <label class="btn btn-primary" id="Intro">
+        <div><input type="checkbox" name="intro" data-toggle="toggle">see all orders</div>
+      </label>
+    </div>
+  </div>
+  <div class="col-sm-3 col-md-3 col-lg-3"></div>
+</div>
+
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12 header">
+    <div class="col-sm-12 col-md-12 col-lg-12 header" id="header">
       <h1>Executive Orders</h1>
       <div data-toggle="buttons">
-        <label class="btn btn-primary labor-btn" id="Labor">
+        <label class="btn btn-primary subject-btn btn-sm" id="Labor">
           <div><input type="checkbox" name="labor" data-toggle="toggle">labor</div>
         </label>
-        <label class="btn btn-primary" id="Immigration">
+        <label class="btn btn-primary subject-btn btn-sm" id="Aliens and Nationality">
           <div class="immigration-btn"><input type="checkbox" name="immigration" data-toggle="toggle">immigration</div>
         </label>
-        <label class="btn btn-primary" id="Science">
-          <div class="science-btn"><input type="checkbox" name="science" data-toggle="toggle">science</div>
+        <label class="btn btn-primary subject-btn btn-sm" id="Science and Technology">
+          <div class="science-btn"><input type="checkbox" name="science" data-toggle="toggle">science and technology</div>
         </label>
-        <label class="btn btn-primary" id="Energy">
+        <label class="btn btn-primary subject-btn btn-sm" id="Energy">
           <div class="energy-btn"><input type="checkbox" name="energy" data-toggle="toggle">energy</div>
         </label>
-        <label class="btn btn-primary" id="Banking">
-          <div class="banking-btn"><input type="checkbox" name="banking" data-toggle="toggle">banking</div>
+        <label class="btn btn-primary subject-btn btn-sm" id="Banks and Banking">
+          <div class="banking-btn"><input type="checkbox" name="banking" data-toggle="toggle">banks and banking</div>
         </label>
-        <label class="btn btn-primary" id="Commerce">
+        <label class="btn btn-primary subject-btn btn-sm" id="Commerce">
           <div class="commerce-btn"><input type="checkbox" name="commerce" data-toggle="toggle">commerce</div>
         </label>
-        <label class="btn btn-primary" id="Environment">
+        <label class="btn btn-primary subject-btn btn-sm" id="Environment">
           <div class="environment-btn"><input type="checkbox" name="environment" data-toggle="toggle">environment</div>
         </label>
-        <label class="btn btn-primary" id="Public Health">
+        <label class="btn btn-primary subject-btn btn-sm" id="Public Health">
           <div class="public-health-btn"><input type="checkbox" name="public-health" data-toggle="toggle">public health</div>
         </label>
       </div>
+      <div class="canvas" id="canvas"></div>
     </div>
   </div>
 
   <div class="row">
     <div class="col-sm-8 col-md-8 col-lg-8 canvas-n" id="canvas-n"></div>
-    <div class="col-sm-4 col-md-4 col-lg-4 sidebar" id="sidebar" data-spy="affix" >
+    <div class="col-sm-4 col-md-4 col-lg-4 sidebar" id="sidebar" data-spy="affix">
+      <div class="canvas-s" id="canvas-s"></div>
+      <h3 class='total-subject-orders'></h3>
       <h3 class="title"></h3>
-      <h4 class="president"></h4>
+      <p class="president"></p>
       <p class="content"></p>
       <p class="referenced-orders"></p>
       <p class="subject"></p>
+      <a class="url"></a>
     </div>
   </div>
 </div>
@@ -60,6 +79,8 @@
 <script src='./lib/jquery/jquery-1.12.4.min.js'></script>
 <script src='./lib/bootstrap-3.3.7-dist/js/bootstrap.min.js'></script>
 <script src='./modules/OrderLines.js'></script>
+<script src='./modules/SmallLines.js'></script>
+<script src='./modules/SubjectSummary.js'></script>
 <script src="script.js"></script>
 
 </body>

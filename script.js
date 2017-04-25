@@ -1,4 +1,16 @@
-var dispatcher = d3.dispatch('update');
+// var dispatcher = d3.dispatch('update');
+var width = document.body.clientWidth,
+    height = document.body.clientHeight;
+
+d3.select('.intro-page').style('width',width).style('height',height);
+window.onscroll = function() {headerShadow()};
+  function headerShadow() {
+      if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+          d3.select(".header").style('box-shadow','0px 5px 8px #cccccc');
+      } else {
+        d3.select('.header').style('box-shadow','none')
+      };
+  };
 
 d3.queue()
     .defer(d3.csv,'./data/Executive_Orders.csv', parseOrders)
@@ -6,97 +18,29 @@ d3.queue()
 
 function dataloaded(err, orders){
 
+  console.log(orders.length);
+
+
   var cf = crossfilter(orders);
   var ordersBySubject = cf.dimension(function(d){return d.subject;}, true);
   var ordersByPresNumber = cf.dimension(function(d){return d.presNumber;});
   var orderData = ordersByPresNumber.top(Infinity);
   var plot = d3.select('.canvas-n');
+  // var sidebarPlot = d3.select('.canvas-s');
+  var headerPlot = d3.select('.canvas');
   var linkPlot = d3.select('.canvas-links-div');
 
   var orderlines = OrderLines();
+  var smalllines = SmallLines();
+
   plot.datum(orderData).call(orderlines);
+  headerPlot.datum(orders).call(smalllines);
 
-  //Make the buttons update data
-  var buttons = d3.selectAll('.btn');
-
-  // d3.select('.labor-btn').on('click',function(){
-  //   console.log(this.id);
-  //   if(!d3.select(this).classed('active')){
-  //     console.log('checked');ordersBySubject.filter(this.id);} else{
-  //       console.log('not checked'); ordersBySubject.filter(null);};
-  //   dispatcher.call('update');
-  //   });
-
-  //   ordersBySubject.filter(null);
-  //   ordersBySubject.filter(this.id);
-  //   console.log(this.id);
-  //   dispatcher.call('update');
-  //   });
-  //
-  // buttons.selectAll('.school-type-btn').on('click',function(){
-  //   console.log(this);
-  //   var type = d3.select(this).select('div')._groups[0];
-  //   console.log(type[0].id);
-  //   if(!d3.select(this).classed('active')){
-  //     console.log('checked'); schoolsByType.filter(type[0].id);} else{
-  //       console.log('not checked'); schoolsByType.filter(null);};
-  //   dispatcher.call('update');
-  // });
-
-  // buttons.select('.immigration-btn').on('click',function(){
-  //   ordersBySubject.filter(null);
-  //   ordersBySubject.filter(this.id);
-  //   console.log(this.id);
-  //   dispatcher.call('update');
-  //   });
-  //
-  // buttons.select('.science-btn').on('click',function(){
-  //   ordersBySubject.filter(null);
-  //   ordersBySubject.filter(this.id);
-  //   console.log(this.id);
-  //   dispatcher.call('update');
-  //   });
-  //
-  //   buttons.select('.energy-btn').on('click',function(){
-  //   ordersBySubject.filter(null);
-  //   ordersBySubject.filter(this.id);
-  //   console.log(this.id);
-  //   dispatcher.call('update');
-  //   });
-  //
-  // buttons.select('.banking-btn').on('click',function(){
-  //   ordersBySubject.filter(null);
-  //   ordersBySubject.filter(this.id);
-  //   console.log(this.id);
-  //   dispatcher.call('update');
-  //   });
-  //
-  // buttons.select('.commerce-btn').on('click',function(){
-  //   ordersBySubject.filter(null);
-  //   ordersBySubject.filter(this.id);
-  //   console.log(this.id);
-  //   dispatcher.call('update');
-  //   });
-  //
-  // buttons.select('.environment-btn').on('click',function(){
-  //   ordersBySubject.filter(null);
-  //   ordersBySubject.filter(this.id);
-  //   console.log(this.id);
-  //   dispatcher.call('update');
-  //   });
-  //
-  // buttons.select('.public-health-btn').on('click',function(){
-  //   ordersBySubject.filter(null);
-  //   ordersBySubject.filter(this.id);
-  //   console.log(this.id);
-  //   dispatcher.call('update');
-  //   });
-  //
-  //Listen to global dispatcher events
-  // dispatcher.on('update',update);
-  // function update(){
-  //   plot.datum(ordersBySubject.top(Infinity)).call(foregroundlines);
-  // };
+  d3.select('#Intro').on('click',function(){
+    d3.select('.intro-page').style('visibility','hidden').style('position','absolute');
+    d3.select('.header').style('visibility','visible');
+    d3.select('.container-fluid *').style('visibility','visible');
+  })
 
 };
 

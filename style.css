@@ -6,26 +6,52 @@ body{
   font-weight: 300;
 }
 
+.intro-page{
+  padding-top:30vh;
+  background-color:#e8e8e8;
+  height: 100vh;
+  z-index: 2;
+}
+
+.container-fluid *{
+  visibility: hidden:
+}
+
 .header,
 .president-name{
   padding-left:60px;
-  padding-bottom:15px;
+  padding-right:60px;
+}
+
+.president{
+  font-weight:400;
 }
 
 .header{
   position:fixed;
-  height:180px;
+  height:190px;
   background-color: #e8e8e8;
   z-index:1;
-  padding-top:30px;
+  padding-top:20px;
+  padding-bottom:20px;
+  visibility:hidden;
+  /*box-shadow: 0px 5px 8px #cccccc;*/
 }
 
 #canvas-n{
-  padding-top:180px;
+  padding-top:200px;
+}
+
+#canvas{
+  padding-top:18px;
 }
 
 h1{
-  padding-bottom:15px;
+  padding-bottom:0px;
+}
+
+h3{
+  font-size: 18px;
 }
 
 .total{
@@ -37,25 +63,28 @@ h1{
 .btn-primary:focus,
 .btn-primary.focus,
 .btn-primary:visited {
-  border-color: #a9b35a !important;
+  border-color: #0b6190 !important;
   background: none !important;
-  color: #a9b35a !important;
+  color: #0b6190 !important;
   border-radius: 20px !important;
+  outline: none !important;
 }
 
 .btn-primary:hover {
-  border-color: #a9b35a !important;
+  border-color: #0b6190 !important;
   background-color: #cccccc !important;
-  color: #a9b35a !important;
+  color: #0b6190 !important;
+  outline: none !important;
 }
 
 .btn-primary:active,
 .btn-primary.active,
 .btn-primary:active:hover,
 .btn-primary.active:hover {
-  border-color: #a9b35a !important;
-  background-color: #a9b35a !important;
+  border-color: #0b6190 !important;
+  background-color: #0b6190 !important;
   color: #e8e8e8 !important;
+  outline: none !important;
 }
 
 .container-fluid{
@@ -80,7 +109,7 @@ h1{
 
 .sidebar{
   right: 0;
-  top: 180px;
+  top: 220px;
   bottom: 0;
   overflow-y:scroll;
 }
@@ -93,7 +122,8 @@ h1{
   stroke: #bc4af9;
 }
 
-.order-circle{
+.order-circle,
+.subject-order-circle{
   visibility: hidden;
 }
 
