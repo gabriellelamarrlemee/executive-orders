@@ -1,4 +1,3 @@
-// var dispatcher = d3.dispatch('update');
 var width = document.body.clientWidth,
     height = document.body.clientHeight;
 
@@ -18,7 +17,6 @@ d3.queue()
 
 function dataloaded(err, orders){
 
-  console.log(orders.length);
 
 
   var cf = crossfilter(orders);
@@ -26,7 +24,6 @@ function dataloaded(err, orders){
   var ordersByPresNumber = cf.dimension(function(d){return d.presNumber;});
   var orderData = ordersByPresNumber.top(Infinity);
   var plot = d3.select('.canvas-n');
-  // var sidebarPlot = d3.select('.canvas-s');
   var headerPlot = d3.select('.canvas');
   var linkPlot = d3.select('.canvas-links-div');
 

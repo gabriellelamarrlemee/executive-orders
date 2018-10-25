@@ -10,7 +10,6 @@ function OrderLines(){
       subject = d3.select('.subject'),
       url = d3.select('.url'),
       subjectOrders = d3.select('.total-subject-orders');
-  // var _dispatcher = d3.dispatch();
   var dispatcher = d3.dispatch('update');
 
 
@@ -19,6 +18,7 @@ function OrderLines(){
     var data = selection.datum();
     w = w || selection.node().clientWidth - m.l - m.r;
     h = h || selection.node().clientHeight - m.t - m.b;
+
     //Nesting the data
     var presidents = d3.nest()
       .key(function(d){return +d.presNumber;})
@@ -193,7 +193,6 @@ function OrderLines(){
 
 
     // BACKGROUND CLICK EVENTS
-
     function equalToEventTarget(){
       return this == d3.event.target;
     }
@@ -222,8 +221,7 @@ function OrderLines(){
 
 
 
-    // BUTTON CLICK EVENTS - make the top lines visible
-
+    // BUTTON CLICK EVENTS
     d3.selectAll('.subject-btn').on('click',function(){
       var subject = this.id,
           searchOrders = d3.selectAll('.subject-order, .small-order'),
@@ -248,7 +246,6 @@ function OrderLines(){
           president.text(d.president);
           content.text(d.content);
           references.text(d.references);
-          // subject.text(d.subject); -- this isn't working. fix later
           d3.select(this).style('cursor','pointer');
           d3.selectAll('.subject-order-circle').style('fill','#e8e8e8');
           d3.select(this).selectAll('.subject-order-circle').style('fill','#3d3d3d');
@@ -283,7 +280,6 @@ function OrderLines(){
           president.text(d.president);
           content.text(d.content);
           references.text(d.references);
-          // subject.text(d.subject);
           d3.selectAll('.subject-order-line').style('visibility','hidden');
           d3.select(this).selectAll('.subject-order-line').style('stroke', '#22bfd2').style('stroke-width',3).style('visibility','visible').transition().attr('y1',20);
           d3.selectAll('.subject-order-circle').style('visibility','hidden');
@@ -315,7 +311,6 @@ function OrderLines(){
             president.text('');
             content.text('');
             references.text('');
-            // subject.text('');
             searchOrders.selectAll('.subject-order-line').style('visibility','hidden');
             d3.selectAll('.subject-order-circle').style('visibility','hidden');
             searchOrders.each(function(d){
@@ -330,7 +325,6 @@ function OrderLines(){
         var sidebarPlot = d3.select('.canvas-s');
         var summary = SubjectSummary();
         //Send only matching data to the sidebar plot
-        // sidebarPlot.datum(subjectData).call(summary);
         subjectOrders.text('Total '+subject+' orders: '+count/2);
 
       } else{
